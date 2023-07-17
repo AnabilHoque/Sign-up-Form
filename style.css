@@ -1,0 +1,10 @@
+/* General Properties */
+
+@font-face {
+    font-family: norse-bold;
+    src: url(./Norse-Bold.otf);
+}
+
+* {
+    box-sizing: border-box;
+}
