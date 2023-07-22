@@ -7,4 +7,4 @@ Resources:
 * [Sun SVG provided by Solar Icons - SVG Repo](https://www.svgrepo.com/svg/525084/sun)
 * [Moon SVG provided by Solar Icons - SVG Repo](https://www.svgrepo.com/svg/524760/moon)
 
-Live Demo :point_left: (to be added)
+[Live Demo](https://anabilhoque.github.io/Sign-up-Form/) :point_left: (75% complete)
