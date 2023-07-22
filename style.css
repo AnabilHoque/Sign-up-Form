@@ -98,11 +98,12 @@ body {
 }
 
 label[for="theme-toggle"] {
-    width: 60px;
-    height: 30px;
+    width: 65px;
+    height: 35px;
     position: relative;
     display: block;
     background-color: #f1f0f0;
+    border: 3px solid rgb(60, 148, 159);
     border-radius: 20px;
     box-shadow: inset 0px 1px 5px rgba(0, 0, 0, 0.3), inset 0px -1px 5px rgba(255, 255, 255, 0.3);
     cursor: pointer;
@@ -117,7 +118,7 @@ label[for="theme-toggle"]::after {
     top: 0px;
     left: 0px;
     background: linear-gradient(180deg, #ffcc89, #d8860b);
-    border-radius: 180px;
+    border-radius: 100%;
     transition: 0.5s ease;
 }
 
@@ -131,7 +132,7 @@ label[for="theme-toggle"]::after {
     background-color: rgb(53, 44, 44);
 }
 
-.toggle input:checked + label:after {
+.toggle input:checked + label::after {
     transform: translateX(100%);
     background: linear-gradient(180deg, #777, #3a3a3a);
 }
@@ -200,6 +201,14 @@ label svg.moon {
 .form-top input, .form-middle input, .form-bottom input {
     height: 30px;
     font-size: 20px;
+    border: 3px solid rgb(60, 148, 159);
+    border-radius: 5px;
+}
+
+.form-top input:focus, .form-middle input:focus, .form-bottom input:focus {
+    outline: none;
+    border-color: rgb(109, 179, 189);
+    box-shadow: 0px 5px 10px -1px rgb(21, 105, 116);
 }
 
 .sign-up-form .outside-box {
@@ -219,7 +228,7 @@ label svg.moon {
     border-radius: 10px;
     padding: 15px 32px;
     font-size: 20px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: inherit;
     cursor: pointer;
 }
 
