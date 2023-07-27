@@ -42,7 +42,6 @@ class FormValidate {
         // validate all fields, keep track of total number of invalid fields
         let invCount = 0;
         Array.from(this.form.elements).forEach(f => {
-
             if (!this.validateField(f)) {
                 invCount++;
             }
@@ -122,6 +121,29 @@ function setTheme() {
     root.className = newTheme;
 }
 
+function checkOnlyDigits(field) {
+    const re = /^\d+$/;
+    return re.test(field.value);
+}
+
+function checkMinLength(field) {
+    return field.value.length >= 8;    
+}
+
+function checkContainsValidPassword(field) {
+    // ensure that password contains one d
+    const numberPattern = /\d/;
+    const capitalPattern = /[A-Z]/;
+    const specialPattern = /[^A-Za-z0-9]/;
+
+    return numberPattern.test(field.value) && capitalPattern.test(field.value) && specialPattern.test(field.value);
+}
+
+function checkPasswordsMatch(field) {
+    const password =  document.getElementById("password");
+    return password.value === field.value;
+}
+
 function run() {
     changeSunColour("white");
     changeMoonColour("black");
@@ -136,6 +158,30 @@ function run() {
 
     signUpForm.addCustom(firstName, field => field.value);
     signUpForm.addCustom(lastName, field => field.value);
+    signUpForm.addCustom(email, field => field.value);
+    signUpForm.addCustom(phoneNumber, field => field.value);
+    signUpForm.addCustom(phoneNumber, checkOnlyDigits);
+    signUpForm.addCustom(password, field => field.value);
+    signUpForm.addCustom(password, checkMinLength);
+    signUpForm.addCustom(password, checkContainsValidPassword);
+    password.addEventListener("input", e => {
+        // checkPasswordsmatch when there is a change to the password field
+        const currPass = e.target.value;
+        const comparePassField = document.querySelector("#confirm-password");
+        const comparePass = comparePassField.value;
+        const parent = comparePassField.parentElement;
+        if (currPass !== comparePass) {
+            if (!parent.classList.contains("invalid")) {
+                parent.classList.add("invalid");
+            }
+        } else {
+            if (parent.classList.contains("invalid")) {
+                parent.classList.remove("invalid");
+            }
+        }
+
+    });
+    signUpForm.addCustom(confirmPassword, checkPasswordsMatch);
 }
 
 run();
@@ -164,5 +210,4 @@ function validateForm(e) {
     });
   }
 };
-
 */

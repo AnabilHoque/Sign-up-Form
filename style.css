@@ -168,7 +168,7 @@ label svg.moon {
 .sign-up-form .inside-box {
     padding-left: 5%;
     padding-top: 2.5%;
-    padding-bottom: 5%;
+    padding-bottom: 3.5%;
     background-color: var(--inside-box-background-color);
     box-shadow: 0px 2px 7px -2px rgb(22, 22, 22);
 }
@@ -255,7 +255,8 @@ div label {
 
 .help {
     display: none;
-    font-size: 0.8em;
+    font-size: 0.825em;
+    font-weight: 500;
     text-align: center;
     margin: 0.5px;
     color: var(--error-color);
