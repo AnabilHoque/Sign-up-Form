@@ -55,11 +55,8 @@ class FormValidate {
             alert("There are some invalid fields!")
         }
         // form is valid - usually submit, however for our case we don't submit
-        else {
-            e.stopImmediatePropagation();
-            e.preventDefault();
-            alert("Successfully submitted form!");
-            this.form.reset();
+        else if (this.submit) {
+            this.submit(e);
         }
     }
 
@@ -182,6 +179,13 @@ function run() {
 
     });
     signUpForm.addCustom(confirmPassword, checkPasswordsMatch);
+
+    signUpForm.submit = e => {
+        const formStatus = e.target;
+        e.preventDefault();
+        alert("Successfully submitted form!");
+        formStatus.reset();
+    }
 }
 
 run();
